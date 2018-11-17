@@ -91,6 +91,8 @@ import "android.app.*"
 import "android.net.*"
 import "android.content.*"
 
+## 插件开发
 
+请看[插件开发指南](https://github.com/hanks-zyh/hydrogenApp/blob/master/PluginDev.md)，更多的功能使用可以参考以后的[插件列表](https://github.com/hanks-zyh/hydrogenApp/tree/master/lua)，目录为 lua 目录
 
 
