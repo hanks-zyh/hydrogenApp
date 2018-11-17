@@ -77,7 +77,9 @@ local adapter
 local function getData()
     -- http://baobab.kaiyanapp.com/api/v1/feed
     local url = data.nextPageUrl
-    if url == nil then url = 'http://baobab.kaiyanapp.com/api/v1/feed' end
+    if url == nil then url = 'http://baobab.kaiyanapp.com/api/v1/feed?udid=3e7ee30c6fc0004a773dc33b0597b5732b145c04' end
+    if url:find('udid=') == nil then url = url .. '&udid=3e7ee30c6fc0004a773dc33b0597b5732b145c04' end
+    print(url)
     LuaHttp.request({ url = url }, function(error, code, body)
         if error or code ~= 200 then
             print('fetch data error')
