@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.papapatimer",
+  "name": "啪啪倒计时",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhj9ms39m9j2046046jr5.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "desc": "小工具，计算相处多少天后啪啪啪"
+}

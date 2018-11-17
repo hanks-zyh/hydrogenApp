@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.tieba",
+  "name": "贴吧",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fgy1fjfrrtqsphj2046046a9t.jpg",
+  "main": "main.lua",
+  "versionName": "1.3",
+  "versionCode": 4,
+  "desc": "贴吧"
+}

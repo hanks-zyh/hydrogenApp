@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.bilibili",
+  "name": "B站排行",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh10o9bu6jj2046046jr5.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.3",
+  "versionCode": 4,
+  "desc": "B站各大分类排行"
+}

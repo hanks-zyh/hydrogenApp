@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+    </style>
+
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="ActivityAnimation" parent="@style/Animation.Design.BottomSheetDialog">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
+        <item name="android:windowShowAnimation">@null</item>
+        <item name="android:windowHideAnimation">@null</item>
+        <item name="android:windowEnterTransition" tools:targetApi="lollipop">@null</item>
+        <item name="android:windowExitTransition" tools:targetApi="lollipop">@null</item>
+    </style>
+
+    <style name="AppActivityAnim" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_left</item>
+    </style>
+
+</resources>

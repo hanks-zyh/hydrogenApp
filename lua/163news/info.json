@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.163news",
+  "name": "网易新闻",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh10oesvb2j20460460si.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.7",
+  "versionCode": 8,
+  "desc": "网易新闻客户端"
+}

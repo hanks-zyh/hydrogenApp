@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.huaban-popular",
+  "name": "花瓣热门",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh824w2h3wj2046046gld.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.4",
+  "versionCode": 4,
+  "desc": "花瓣网热门图片采集"
+}

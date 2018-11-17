@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <androlua.widget.statusbar.StatusBarView
+        android:id="@+id/view_statusbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#f00"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/iv_more"
+            android:background="@drawable/bg_rect_radius"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_url"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="12dp"
+                android:singleLine="true"
+                android:text="为哦波"
+                android:textColor="#aaffffff"
+                android:textColorHint="#44ffffff"
+                android:textSize="13sp"/>
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp">
+
+                <android.support.v4.widget.ContentLoadingProgressBar
+                    android:id="@+id/loading"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:alpha="0.6"
+                    android:indeterminateDrawable="@drawable/loading_shap"/>
+
+                <ImageView
+                    android:id="@+id/iv_refresh"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:alpha="0.4"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_refresh"
+                    android:visibility="gone"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:background="@drawable/layout_selector_tran"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_more"/>
+    </RelativeLayout>
+
+    <androlua.widget.statusbar.FixInsetsFrameLayout
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androlua.LuaWebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androlua.widget.statusbar.FixInsetsFrameLayout>
+</LinearLayout>

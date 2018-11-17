@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.magmoe-cos",
+  "name": "moe cos",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhg0803jmsj2046046742.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.2",
+  "versionCode": 3,
+  "desc": "cosplay ，来源：mag.moe"
+}

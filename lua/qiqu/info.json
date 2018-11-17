@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.qiqu",
+  "name": "奇趣百科",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh10pf0gqkj2046046748.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "desc": "提取自奇趣百科，优化浏览体验"
+}

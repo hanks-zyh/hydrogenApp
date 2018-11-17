@@ -1,0 +1,10 @@
+{
+  "id": "pub.hanks.pixiv",
+  "name": "P站排行",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh803sp03xj2046046a9x.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.1",
+  "versionCode": 2,
+  "private": true,
+  "desc": "P站每日插画排行"
+}

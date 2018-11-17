@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.gacha",
+  "name": "网易插画",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhaaa8qcofj2046046we9.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "desc": "网易每日插画排行"
+}

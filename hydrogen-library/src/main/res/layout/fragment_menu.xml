@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/layout_selector_tran"
+        android:contentDescription="收藏"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_star_border_white_24dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/add_shortcut"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/layout_selector_tran"
+        android:contentDescription="添加快捷"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launch_white_24dp"/>
+</LinearLayout>

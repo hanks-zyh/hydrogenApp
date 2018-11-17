@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.btmayi",
+  "name": "磁力搜索",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhmrw8qtpej2046046t8h.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "desc": "BT 磁力链搜索"
+}

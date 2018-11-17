@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.pengpainews",
+  "name": "澎湃新闻",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fivss3tagmj2046046jr9.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.5",
+  "versionCode": 6,
+  "desc": "澎湃新闻客户端"
+}

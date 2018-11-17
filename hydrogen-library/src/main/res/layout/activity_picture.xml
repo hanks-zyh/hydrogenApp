@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androlua.widget.picture.ElasticDragDismissFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dragdismiss_drag_dismiss_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="androlua.widget.picture.SwipeDismissBehavior">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/dragdismiss_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:alpha="0.7">
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            tools:text="2/333"
+            android:textColor="#ffffff"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_download"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/layout_selector_tran"
+            android:padding="16dp"
+            android:src="@drawable/ic_download"/>
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/iv_download"
+            android:background="@drawable/layout_selector_tran"
+            android:padding="18dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share"/>
+    </RelativeLayout>
+</androlua.widget.picture.ElasticDragDismissFrameLayout>

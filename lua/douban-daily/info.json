@@ -1,0 +1,10 @@
+{
+  "id": "pub.hanks.douban-daily",
+  "name": "豆瓣一刻",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhlllrrhr0j2046046jr8.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "private": true,
+  "desc": "豆瓣一刻"
+}

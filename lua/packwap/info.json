@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.packwap",
+  "name": "网页转插件",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fkj0lmy0ppj2046046742.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "desc": "将网页应用打包成插件"
+}

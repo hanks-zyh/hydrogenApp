@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.zhihudaliy",
+  "name": "知乎日报",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh10t9la4mj2046046mwx.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 2,
+  "desc": "提取知乎日报内容"
+}

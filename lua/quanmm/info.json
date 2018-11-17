@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.quanmm",
+  "name": "券妈妈",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fmkyaqj4gmj2046046t8h.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "desc": "领取各种优惠券"
+}

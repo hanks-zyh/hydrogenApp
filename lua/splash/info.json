@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.splash",
+  "name": "启动图",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhi3r699q7j2046046741.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 2,
+  "desc": "每日启动图回顾"
+}

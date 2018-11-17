@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.readhub",
+  "name": "ReadHub",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fjozk0cv71j20460463ya.jpg",
+  "main": "main.lua",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "desc": "ReadHub"
+}

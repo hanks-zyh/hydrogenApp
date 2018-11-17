@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pub.hanks.sample.SplashActivity">
+
+    <FrameLayout
+        android:id="@+id/layer_defalut"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/smile"
+            android:tint="#9c9c9c" />
+
+        <TextView
+            android:id="@+id/tv_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:text="2018年5月13日，星期三\n遇见你，真好"
+            android:textColor="#9c9c9c"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="70dp"
+            android:alpha="0.9"
+            android:src="@drawable/logo_no_bg" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:id="@+id/layer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shadow_splash"
+        android:orientation="vertical"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="120dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:paddingRight="2dp">
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_date"
+                android:text="14 "
+                android:textColor="#FFFFFF"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_day"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="2dp"
+                android:text="/ 2月   星期五"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_author"
+            android:gravity="right"
+            android:lineSpacingMultiplier="1.5"
+            android:text="有的时候，人们之所以哭泣并不他们坚强了太久"
+            android:textColor="#F1FFFFFF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:alpha="0.9"
+            android:gravity="right"
+            android:text="太宰治（だざいおさむ）"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_ad"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp" />
+</RelativeLayout>

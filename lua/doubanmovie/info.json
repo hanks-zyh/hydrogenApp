@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.doubanmovie",
+  "name": "热映电影",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh34zfgjcvj2046046weh.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.1",
+  "versionCode": 4,
+  "desc": "展示最近热映电影，可看预告片"
+}

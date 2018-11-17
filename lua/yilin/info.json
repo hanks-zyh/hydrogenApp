@@ -1,0 +1,9 @@
+{
+  "id": "pub.hanks.yilin",
+  "name": "意林",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhfwj12tvhj2046046t8h.jpg",
+  "main": "main.lua",
+  "versionName": "1.1",
+  "versionCode": 2,
+  "desc": "《意林》杂志，鸡汤慎重服用"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pub.hanks.taobao",
+  "name": "淘宝",
+  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fikliu17ghj2046046jr6.jpg",
+  "main": "main.lua",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "private": false,
+  "desc": "轻版淘宝"
+}
