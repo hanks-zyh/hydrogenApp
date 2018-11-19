@@ -21,20 +21,19 @@ plugin wrote by `lua` program language
 
 ## 项目结构
 
-宿主： sample
-宿主用到的 lua 文件： lua_main
-库：app7
+宿主：`sample`  
+宿主用到的 lua 文件： `lua_main`  
 
-
-插件目录：lua
-脚本：script
+插件目录：`lua`  
+脚本：script  
 
 
 ### 插件开发步骤
 
-插件目录：lua
-插件包含文件 info.json main.lua
+插件目录：lua  
+插件包含文件 `info.json` `main.lua`
 
+```
 {
   "id": "pub.hanks.gacha",
   "name": "网易插画",
@@ -52,18 +51,16 @@ main: 插件启动文件
 versionName: 插件版本名称
 versionVersion: 插件版本号
 desc: 插件描述
-
+```
 
 ### 插件发布
 
-插件生成目录 api_luanroid
-执行 java 单元测试 zipPlugin， 该方法会打包好插件并更新获取插件的 api
-成功后，然后 push 到线上
+插件生成目录 api_luanroid, 执行 java 单元测试 `zipPlugin`， 该方法会打包好插件并更新获取插件的 api, 成功后，然后 push 到线上
 
 [lua语法](http://www.runoob.com/lua/lua-basic-syntax.html)
 [lua的手册](https://cloudwu.github.io/lua53doc/manual.html)
 
-
+```
 
 require "import"
 import "android.widget.*"
@@ -72,8 +69,8 @@ import "android.app.*"
 import "android.net.*"
 import "android.content.*"
 
+```
 
-###
 
 ### 更新每日壁纸
 
@@ -84,15 +81,8 @@ https://coding.net/u/zhangyuhan/p/api_luanroid/git/blob/master/api/splash
 https://coding.net/u/zhangyuhan/p/api_luanroid/git/blob/master/api/update
 
 
-require "import"
-import "android.widget.*"
-import "android.view.*"
-import "android.app.*"
-import "android.net.*"
-import "android.content.*"
-
 ## 插件开发
 
-请看[插件开发指南](https://github.com/hanks-zyh/hydrogenApp/blob/master/PluginDev.md)，更多的功能使用可以参考以后的[插件列表](https://github.com/hanks-zyh/hydrogenApp/tree/master/lua)，目录为 lua 目录
+请看[插件开发指南](https://github.com/hanks-zyh/hydrogenApp/blob/master/PluginDev.md)，更多的功能使用可以参考已有的[插件列表](https://github.com/hanks-zyh/hydrogenApp/tree/master/lua)，目录为 lua 目录
 
 
