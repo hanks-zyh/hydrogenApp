@@ -3,11 +3,11 @@ var path = require('path');
 var archiver = require('archiver');
 const os = require('os');
 
-var root = "/home/hanks/work/opensource/LuaJAndroid/lua";
+var root = "/home/hanks/work/opensource/hydrogenApp/lua";
 var apiFile = "/home/hanks/work/opensource/api_luanroid/api/plugins";
 
 if (os.platform() == 'win32') {
-      root = "D:\\work\\opensource\\LuaJAndroid\\lua";
+      root = "D:\\work\\opensource\\hydrogenApp\\lua";
       apiFile = "D:\\work\\opensource\\api_luanroid\\api\\plugins";
 }
 

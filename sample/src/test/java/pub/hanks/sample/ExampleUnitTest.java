@@ -127,10 +127,10 @@ public class ExampleUnitTest {
         String updateJSON = "nodejs /home/hanks/work/opensource/LuaJAndroid/script/node/watch/update_plugin_info.js";
         String OS = System.getProperty("os.name").toLowerCase();
         if (OS.contains("windows")){
-            compileLua = "node D:\\work\\opensource\\LuaJAndroid\\script\\node\\watch\\exec_luac.js";
+            compileLua = "node D:\\work\\opensource\\hydrogenApp\\script\\node\\watch\\exec_luac.js";
             root = "D:\\work\\opensource\\api_luanroid\\lua";
             outDir = "D:\\work\\opensource\\api_luanroid\\plugin";
-            updateJSON = "node D:\\work\\opensource\\LuaJAndroid\\script\\node\\watch\\update_plugin_info.js";
+            updateJSON = "node D:\\work\\opensource\\hydrogenApp\\script\\node\\watch\\update_plugin_info.js";
         }
 
         execCMD(compileLua);

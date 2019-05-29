@@ -6,10 +6,10 @@ var shelljs = require('shelljs/global');
 const os = require('os');
 
 
-var buildfilePath = '/home/hanks/work/opensource/LuaJAndroid/script/lua/buildfile.lua'
+var buildfilePath = '/home/hanks/work/opensource/hydrogenApp/script/lua/buildfile.lua'
 
 if (os.platform() == 'win32') {
-    buildfilePath = "D:\\work\\opensource\\LuaJAndroid\\script\\lua\\buildfile.lua";
+    buildfilePath = "D:\\work\\opensource\\hydrogenApp\\script\\lua\\buildfile.lua";
 }
 
 function build(file){
@@ -41,9 +41,9 @@ function buildDir(sourceDir,pluginRoot){
 }
 
 if (os.platform() == 'win32') {
-    buildDir("D:\\work\\opensource\\LuaJAndroid\\lua_main","D:\\work\\opensource\\LuaJAndroid\\sample\\src\\main\\assets\\lua")
-    buildDir("D:\\work\\opensource\\LuaJAndroid\\lua","D:\\work\\opensource\\api_luanroid\\lua")
+    buildDir("D:\\work\\opensource\\hydrogenApp\\lua_main","D:\\work\\opensource\\hydrogenApp\\sample\\src\\main\\assets\\lua")
+    buildDir("D:\\work\\opensource\\hydrogenApp\\lua","D:\\work\\opensource\\api_luanroid\\lua")
 }else{
-    buildDir("/home/hanks/work/opensource/LuaJAndroid/lua_main","/home/hanks/work/opensource/LuaJAndroid/sample/src/main/assets/lua")
-    buildDir("/home/hanks/work/opensource/LuaJAndroid/lua","/home/hanks/work/opensource/api_luanroid/lua")
+    buildDir("/home/hanks/work/opensource/hydrogenApp/lua_main","/home/hanks/work/opensource/hydrogenApp/sample/src/main/assets/lua")
+    buildDir("/home/hanks/work/opensource/hydrogenApp/lua","/home/hanks/work/opensource/api_luanroid/lua")
 }
