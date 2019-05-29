@@ -39,13 +39,13 @@ local function getData(params, data, adapter, fragment, swipe_layout, reload)
         if params.page + 1 >= json.data.page.total_page then isEnd = true end
         params.page = params.page + 1
         local body = json.data.content:gsub('\\"', '"')
-        print(body)
+--        print(body)
         local arr = {}
-        local match_p = '<img src="(.-)".-class="ti_author">(.-)</span>.-class="ti_time">(.-)</span>.-<a href="(.-)"%s+class="j_common ti_item".-<div class="ti_title">(.-)</div>.-<div class="ti_func_btn btn_reply">(.-)</div>'
+        local match_p = '<img src="(.-)".-class="ti_author">(.-)</span>.-class="ti_time">(.-)</span>.-<a href="(.-)"%s+class="j_common%s+ti_item%s+".-<div class="ti_title">(.-)</div>.-<div class="ti_func_btn btn_reply">(.-)</div>'
         local i = 0;
         for tl_shadow in string.gmatch(body, '<li class="tl_shadow.-">(.-)</li>') do
             avatar, author, time, url, title, commentCount = string.match(tl_shadow, match_p)
-            print(tl_shadow)
+--            print(tl_shadow)
             if title ~= nil and author ~= nil and time ~= nil and commentCount ~= nil then
                 local imgArr = {}
                 for img in string.gmatch(tl_shadow, 'medias_thumb_holder".-data.url="(.-)"') do
