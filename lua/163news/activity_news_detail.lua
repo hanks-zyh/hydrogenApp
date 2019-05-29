@@ -103,11 +103,11 @@ function openImgActivity(a,b){var c=JSON.stringify({currentIndex:b,uris:a});var 
 </body>
 </html>
 ]]
- 
 local function getData(url)
     url = url:gsub('.html', '_0.html')
     LuaHttp.request({ url = url }, function(error, code, body)
-        local content = string.match(body, '<div class="content">(.-)</div>%s+<div class="footer">')
+        print(url)
+        local content = string.match(body, '<article.->(.-)</article>')
         local data = string.format(htmlTemplate, css, content)
         data = data:gsub('src="//', 'src="http://'):gsub('data[-]src="', 'src="')
         uihelper.runOnUiThread(activity, function()
