@@ -37,6 +37,7 @@ public class NoScrollViewPager extends ViewPager {
     @Override
     protected boolean canScroll(View v, boolean checkV, int dx, int x, int y) {
         if (v != this && v instanceof ViewPager) {
+
             int currentItem = ((ViewPager) v).getCurrentItem();
             int countItem = ((ViewPager) v).getAdapter().getCount();
             return !((currentItem == (countItem - 1) && dx < 0) || (currentItem == 0 && dx > 0));
