@@ -101,7 +101,7 @@ function openImgActivity(a,b){var c=JSON.stringify({currentIndex:b,uris:a});var 
 
 local function getData(url)
     LuaHttp.request({ url = url }, function(error, code, body)
-        local content = string.match(body, 'class="content%s+wangEditor[-]txt".->(.-)</div>%s+<div%s+class="tags">'):gsub('style=".-"', ''):gsub('width=%d+', ''):gsub('height=%d+', '')
+        local content = string.match(body, 'class="content%s+wangEditor[-]txt.->(.-)</div>'):gsub('style=".-"', ''):gsub('width=%d+', ''):gsub('height=%d+', '')
         local data = string.format(htmlTemplate, css, content)
         uihelper.runOnUiThread(activity, function()
             webview.loadData(data, "text/html; charset=UTF-8", nil)
