@@ -343,7 +343,10 @@ local function newInstance()
 
 
     local function getData()
-
+        for k, v in pairs(data) do
+            data[k] = nil
+        end
+        config = JSON.decode(sp.getString('config', '{}'))
         local sortApps = config.sortApps or {}
         local localList = LuaFileUtils.getPluginList()
         for i = 1, #localList do
@@ -392,10 +395,6 @@ local function newInstance()
             return loadlayout(layout, ids)
         end,
         onResume = function()
-            config = JSON.decode(sp.getString('config', '{}'))
-            for k, v in pairs(data) do
-                data[k] = nil
-            end
             getData()
             -- logo
             if config.home_logo and config.home_logo ~= '' then
@@ -424,7 +423,7 @@ local function newInstance()
             end
         end,
     }))
-    return fragment, adapter, isDraggingIcons, setDraggingIcons
+    return fragment, adapter, getData, isDraggingIcons, setDraggingIcons
 end
 
 return {

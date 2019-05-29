@@ -8,7 +8,6 @@
 require "import"
 
 local FileUtils = import "androlua.common.LuaFileUtils"
-local DialogBuilder = import "android.app.AlertDialog$Builder"
 import "android.widget.*"
 import "android.content.*"
 import "androlua.LuaAdapter"
@@ -32,10 +31,8 @@ import "android.support.design.widget.BottomSheetBehavior"
 import "android.support.design.widget.CoordinatorLayout"
 import "android.support.v4.view.MotionEventCompat"
 import "android.view.MotionEvent"
-local Orientation = import "android.graphics.drawable.GradientDrawable$Orientation"
 local uihelper = require "uihelper"
 local JSON = require "cjson"
-local log = require "log"
 
 local function newInstance()
     -- create view table
@@ -83,8 +80,7 @@ local function newInstance()
                 RecyclerView,
                 id = "recyclerView",
                 layout_width = "fill",
-                layout_marginTop = "32dp",
-                clipToPadding = false,
+                layout_marginTop = "16dp",
                 layout_marginLeft = "8dp",
                 layout_marginRight = "8dp",
                 overScrollMode = 2,
@@ -131,7 +127,6 @@ local function newInstance()
     local hadLoadData
     local isVisible
     local lastId
-    local params = { rid = rid }
     local data = {}
     local ids = {}
     local config = {}
@@ -247,6 +242,10 @@ local function newInstance()
     end
 
     local function getData()
+        for k, v in pairs(data) do
+            data[k] = nil
+        end
+        config = JSON.decode(sp.getString('config', '{}'))
         local sortApps = config.sortApps or {}
         local localList = LuaFileUtils.getPluginList()
         for i = 1, #localList do
@@ -302,14 +301,11 @@ local function newInstance()
             ids.iv_setting.onClick = function(view)
                 newActivity(luajava.luadir .. '/activity_setting.lua')
             end
-            config = JSON.decode(sp.getString('config', '{}'))
-            for k, v in pairs(data) do
-                data[k] = nil
-            end
+
             getData()
         end,
     }))
-    return fragment, adapter, isDraggingIcons, setDraggingIcons
+    return fragment, adapter, getData, isDraggingIcons, setDraggingIcons
 end
 
 return {

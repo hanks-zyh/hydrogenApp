@@ -41,8 +41,8 @@ activity.setSwipeBackEnable(false)
 local bottomBehavior = BottomSheetBehavior()
 bottomBehavior.setPeekHeight(uihelper.dp2px(32))
 
-local homeFragment, homeAdapter, homeIconIsDraggin, homeIconsSetDragging = (require "fragment_home").newInstance()
-local listFragment, listAdapter, listIconIsDraggin, listIconsSetDragging = (require "fragment_list").newInstance()
+local homeFragment, homeAdapter, homeGetData, homeIconIsDraggin, homeIconsSetDragging = (require "fragment_home").newInstance()
+local listFragment, listAdapter, listGetData, listIconIsDraggin, listIconsSetDragging = (require "fragment_list").newInstance()
 
 local data = {
     titles = { "home", "list" },
@@ -143,16 +143,19 @@ function onCreate(savedInstanceState)
     viewPager.setAdapter(pageAdapter)
     viewPager.setOffscreenPageLimit(#data.fragments)
     viewPager.setCurrentItem(0)
-    --
-    --
-    --    adapterAll = getAdapter(dataAll, false,
-    --        function() return #dataAll end,
-    --        function() return touchHelperAll end)
-    --    recyclerView_all.setLayoutManager(GridLayoutManager(activity, 5))
-    --    recyclerView_all.setAdapter(adapterAll)
-    --
-    --    touchHelperAll = ItemTouchHelper(getTouchHelperCallback(dataAll, data, adapterAll, adapter))
-    --    touchHelperAll.attachToRecyclerView(recyclerView_all)
+    viewPager.addOnPageChangeListener(luajava.createProxy('android.support.v4.view.ViewPager$OnPageChangeListener', {
+        onPageSelected = function(position)
+            viewPager.postDelayed(luajava.createProxy('java.lang.Runnable', {
+                run = function()
+                    if position == 0 then
+                        homeGetData()
+                    elseif position == 1 then
+                        listGetData()
+                    end
+                end
+            }, 1000))
+        end
+    }))
 
     initSplash()
 end
