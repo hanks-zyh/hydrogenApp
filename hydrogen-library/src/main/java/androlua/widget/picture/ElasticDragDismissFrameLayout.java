@@ -80,7 +80,7 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(metrics);
-        dragDismissDistance = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 260, metrics);
+        dragDismissDistance = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 180, metrics);
         alplaDistance = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, metrics);
 
         shouldScale = dragDismissScale != 1f;

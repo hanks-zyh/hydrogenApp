@@ -23,6 +23,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,6 +91,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        overridePendingTransition( android.R.anim.fade_in, 0);//结束的动画
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture);
         context = this;
@@ -103,7 +105,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
             @Override
             public void onDragDismissed() {
                 super.onDragDismissed();
-                PicturePreviewActivity.this.supportFinishAfterTransition();
+                PicturePreviewActivity.this.finish();
             }
         });
 
@@ -427,5 +429,9 @@ public class PicturePreviewActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, android.R.anim.fade_out);//结束的动画
+    }
 }
