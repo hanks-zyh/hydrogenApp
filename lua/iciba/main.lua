@@ -94,16 +94,15 @@ local function unicode_to_utf8(convertStr)
     return convertStr
 end
 
-local function text(text, size, color)
+local function text(txt, size, color)
     return {
         TextView,
         background = "@drawable/layout_selector_tran",
         layout_width = "fill",
-        paddingTop = "16dp",
-        paddingTop = "8dp",
+        paddingTop = "24dp",
         textIsSelectable = true,
         gravity = "center_vertical",
-        text = text,
+        text = txt,
         textSize = size,
         textColor = color,
     }
@@ -164,54 +163,33 @@ local function text_tb(textTop, textBottom)
 end
 
 local function fillData(json)
-    log.print_r(json)
     layout_content.removeAllViews()
-    local symbol = json.baesInfo.symbols[1]
+    local symbol = json.basic
     if symbol then
         layout_content.addView(loadlayout(text('基本释义', '16sp', '#0090ff')))
 
         local ph = {}
-        if symbol.ph_en then ph[#ph + 1] = '英[' .. symbol.ph_en .. ']' end
-        if symbol.ph_am then ph[#ph + 1] = '美[' .. symbol.ph_am .. ']' end
+        if symbol['uk-phonetic'] then ph[#ph + 1] = '英[' .. symbol['uk-phonetic'] .. ']' end
+        if symbol['us-phonetic'] then ph[#ph + 1] = '美[' .. symbol['us-phonetic'] .. ']' end
         layout_content.addView(loadlayout(text(table.concat(ph, '  '), '14sp', '#222222')))
-        for _, part in ipairs(symbol.parts) do
-            layout_content.addView(loadlayout(text_lr(part.part, table.concat(part.means, '\n'))))
-        end
-    end
 
-    local sentence = json.sentence
-    if #sentence > 0 then
-        layout_content.addView(loadlayout(text('双语例句', '16sp', '#0090ff')))
-        for _, se in ipairs(sentence) do
-            layout_content.addView(loadlayout(text_tb(se.Network_en, se.Network_cn)))
-        end
-    end
-
-    local netmean = json.netmean
-    log.print_r(netmean)
-    if netmean then
-        layout_content.addView(loadlayout(text('网络释义', '16sp', '#0090ff')))
-        if #netmean.PerfectNetExp > 0 then
-            layout_content.addView(loadlayout(text('常用词语', '14sp', '#666666')))
-            for i, se in ipairs(netmean.PerfectNetExp) do
-                layout_content.addView(loadlayout(text_tb(se.exp, se.abs)))
-            end
-        end
-        if #netmean.RelatedPhrase > 0 then
-            layout_content.addView(loadlayout(text('相关词条', '14sp', '#666666')))
-            for i, se in ipairs(netmean.RelatedPhrase) do
-                layout_content.addView(loadlayout(text_tb(se.word .. ' ' .. se.list[1].exp, se.list[1].abs)))
+        if symbol.explains and #symbol.explains > 0 then
+            for i = 1, #symbol.explains do
+                print(symbol.explains[i])
+                layout_content.addView(loadlayout(text(symbol.explains[i], '16sp', '#333333'), {}, LinearLayout))
             end
         end
     end
+
 end
 
 local function search(keyword)
-    local url = string.format('http://www.iciba.com/index.php?a=getWordMean&c=search&list=1,3,4,8,9,12,13,15&word=%s&_=%d&callback=jsonp1', keyword, os.time() * 1000)
+    local url = string.format('http://fanyi.youdao.com/openapi.do?keyfrom=LinYaoTian&key=141887672&type=data&doctype=json&version=1.2&q=%s', keyword)
+    print(url)
     local options = { url = url }
     LuaHttp.request(options, function(e, code, body)
         uihelper.runOnUiThread(activity, function()
-            local json = JSON.decode(unicode_to_utf8(body:sub(8, #body - 1)))
+            local json = JSON.decode(body)
             fillData(json)
         end)
     end)

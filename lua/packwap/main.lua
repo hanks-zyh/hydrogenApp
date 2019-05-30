@@ -264,7 +264,7 @@ function onCreate(savedInstanceState)
 
         local intent = Intent(activity, LuaActivity)
         intent.putExtra("luaPath", 'packwap/testwap.lua')
-        intent.putExtra("url", url)
+        intent.putExtra("url", params.url)
         intent.putExtra("params", JSON.encode(params))
         activity.startActivity(intent)
     end

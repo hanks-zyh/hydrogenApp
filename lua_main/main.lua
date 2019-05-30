@@ -136,6 +136,18 @@ local pageAdapter = LuaFragmentPageAdapter(activity.getSupportFragmentManager(),
         end
     }))
 
+local function refreshData()
+    viewPager.postDelayed(luajava.createProxy('java.lang.Runnable', {
+        run = function()
+            if viewPager.getCurrentItem() == 0 then
+                homeGetData()
+            elseif position == 1 then
+                listGetData()
+            end
+        end
+    }), 500)
+end
+
 function onCreate(savedInstanceState)
     activity.setLightStatusBar()
     activity.setContentView(loadlayout(root_layout))
@@ -145,15 +157,7 @@ function onCreate(savedInstanceState)
     viewPager.setCurrentItem(0)
     viewPager.addOnPageChangeListener(luajava.createProxy('android.support.v4.view.ViewPager$OnPageChangeListener', {
         onPageSelected = function(position)
-            viewPager.postDelayed(luajava.createProxy('java.lang.Runnable', {
-                run = function()
-                    if position == 0 then
-                        homeGetData()
-                    elseif position == 1 then
-                        listGetData()
-                    end
-                end
-            }, 1000))
+            refreshData()
         end
     }))
 
@@ -161,7 +165,7 @@ function onCreate(savedInstanceState)
 end
 
 function onResume()
-    config = JSON.decode(sp.getString('config', '{}'))
+    local config = JSON.decode(sp.getString('config', '{}'))
 
     -- bg
     if config.home_bg and config.home_bg ~= '' then
@@ -183,6 +187,8 @@ function onResume()
             layout_container.setAlpha(alpah / 10)
         end
     end
+
+    refreshData()
 end
 
 local mHits = { 0, 0 }

@@ -3,7 +3,7 @@
   "name": "即刻",
   "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh3502pvo2j2046046dfl.jpg",
   "main": "main.lua",
-  "versionName": "1.0.4",
-  "versionCode": 4,
+  "versionName": "1.0.5",
+  "versionCode": 5,
   "desc": "即刻热门的信息流"
 }

@@ -62,22 +62,14 @@ local log = require("log")
 local function launchDetail(fragment, msg)
     local activity = fragment.getActivity()
     --log.print_r(msg)
-    local url = msg.originalLinkUrl
-    if msg and url then
-        if url:find('^jike://') then
-            url = 'https://m.okjike.com/messages/' .. msg.id
-        end
-        WebViewActivity.start(activity, url, 0xFFffe411)
-        return
-    end
-
-    activity.toast('没有 url 可以打开')
+    local url = 'https://m.okjike.com/originalPosts/' .. msg.id
+    WebViewActivity.start(activity, url, 0xFFffe411)
 end
 
 local function launchPicturePreview(fragment, msg, index)
     local urls = {}
-    for i = 1, #msg.pictureUrls do
-        urls[i] = msg.pictureUrls[i].picUrl
+    for i = 1, #msg.pictures do
+        urls[i] = msg.pictures[i].picUrl
     end
     local data = {
         uris = urls,
@@ -141,21 +133,21 @@ function newInstance()
                     position = position + 1
                     local msg = data.msg[position]
                     local views = holder.itemView.getTag()
-                    views.tv_title.setText(msg.title or 'error title')
+                    views.tv_title.setText(msg.topic.content or 'error title')
                     views.tv_content.setText(msg.content or '')
-                    views.tv_date.setText(msg.updatedAt:sub(1, 10) or '')
-                    LuaImageLoader.loadWithRadius(views.iv_image, 3, msg.topic.thumbnailUrl)
+                    views.tv_date.setText(msg.createdAt:sub(1, 10) or '')
+                    LuaImageLoader.loadWithRadius(views.iv_image, 3, msg.topic.squarePicture.thumbnailUrl)
                     if msg.video then
                         views.layout_video.setVisibility(0)
                         LuaImageLoader.load(views.iv_video, msg.video.thumbnailUrl)
                     else
                         views.layout_video.setVisibility(8)
                     end
-                    views.tv_collect.setText(string.format('%d', msg.popularity))
+                    views.tv_collect.setText(string.format('%d', msg.likeCount))
                     views.tv_comment.setText(string.format('%d', msg.commentCount))
 
-                    if msg.pictureUrls and #msg.pictureUrls > 0 then
-                        local pictures = msg.pictureUrls
+                    if msg.pictures and #msg.pictures > 0 then
+                        local pictures = msg.pictures
                         local urls = {}
                         local len = #pictures
                         for i = 1, len do
