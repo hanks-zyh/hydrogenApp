@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.tieba",
   "name": "贴吧",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fgy1fjfrrtqsphj2046046a9t.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0884c77a94448?w=150&h=150&f=png&s=1838",
   "main": "main.lua",
   "versionName": "1.4",
-  "versionCode": 5,
+  "versionCode": 6,
   "desc": "贴吧"
 }

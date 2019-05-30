@@ -5,6 +5,6 @@
   "main": "main.lua",
   "versionName": "1.0.0",
   "versionCode": 1,
-  "private": false,
+  "private": true,
   "desc": "轻版淘宝"
 }

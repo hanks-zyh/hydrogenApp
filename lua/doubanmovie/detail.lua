@@ -211,16 +211,6 @@ local item_comment = {
         textSize = "15sp",
         layout_marginLeft = "48dp",
     },
-    {
-        TextView,
-        id = "tv_date",
-        layout_width = "fill",
-        textColor = "#888888",
-        textSize = "12sp",
-        layout_marginLeft = "48dp",
-        layout_marginTop = "2dp",
-        layout_below = "tv_nick",
-    },
 
     {
         TextView,
@@ -228,9 +218,9 @@ local item_comment = {
         layout_width = "fill",
         textColor = "#222222",
         textSize = "13sp",
-        layout_below = "tv_date",
+        layout_below = "tv_nick",
         layout_marginLeft = "48dp",
-        layout_marginTop = "4dp",
+        layout_marginTop = "8dp",
         lineSpacingMultiplier = 1.2,
     },
     {
@@ -261,8 +251,9 @@ local item_cast = {
 
 local function updateHeader(movie)
     uihelper.runOnUiThread(activity, function()
-        LuaImageLoader.load(iv_bg, movie.img)
-        LuaImageLoader.load(iv_cover, movie.img)
+        local imgUrl = movie.img:gsub("w.h","148.208")
+        LuaImageLoader.load(iv_bg, imgUrl)
+        LuaImageLoader.load(iv_cover, imgUrl)
         local rate = movie.sc
         if rate == '0' or rate == 0 then rate = '暂无' end
         tv_title.setText(movie.nm)
@@ -298,9 +289,8 @@ local function updateComment(comments)
         for i = 1, #comments do
             local views = {}
             local child = loadlayout(item_comment, views)
-            LuaImageLoader.load(views.iv_avatar, comments[i].avatarurl)
-            views.tv_nick.setText(comments[i].nickName or '')
-            views.tv_date.setText(comments[i].time or '')
+            LuaImageLoader.load(views.iv_avatar, comments[i].avatarUrl)
+            views.tv_nick.setText(comments[i].nick or '')
             views.tv_content.setText(comments[i].content or '')
             layout_comment.addView(child)
         end
@@ -308,15 +298,23 @@ local function updateComment(comments)
 end
 
 local function getData(id)
-    local url = string.format('http://m.maoyan.com/movie/%d.json', id)
+    local url = string.format('http://m.maoyan.com/ajax/detailmovie?movieId=%d', id)
     LuaHttp.request({ url = url }, function(error, code, body)
         if error or code ~= 200 then
             print('get data error ' .. code)
         end
-        local json = JSON.decode(body).data
-        local movie = json.MovieDetailModel
-        local comments = json.CommentResponseModel.hcmts -- 热门
+        local json = JSON.decode(body)
+        local movie = json.detailMovie
         if movie then updateHeader(movie) end
+    end)
+
+    local commentUrl = string.format('http://m.maoyan.com/review/v2/comments.json?movieId=%d&userId=-1&offset=0&limit=15&ts=0&type=3',id)
+    LuaHttp.request({ url = commentUrl }, function(error, code, body)
+        if error or code ~= 200 then
+            print('get data error ' .. code)
+        end
+        local json = JSON.decode(body)
+        local comments = json.data.hotComments -- 热门
         if comments then updateComment(comments) end
     end)
 end

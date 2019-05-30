@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.magmoe-image",
   "name": "MOE二次元",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhg0803jmsj2046046742.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088b4ae47d08e?w=150&h=150&f=png&s=3459",
   "main": "main.lua",
   "versionName": "1.0.2",
-  "versionCode": 3,
+  "versionCode": 4,
   "desc": "质量很好的二次元图, mag.moe"
 }

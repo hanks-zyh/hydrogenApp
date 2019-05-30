@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.500px",
   "name": "500px",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fj0r0sj2xxj2046046t8i.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0842c3273e0c5?w=150&h=150&f=png&s=3578",
   "main": "main.lua",
-  "versionName": "1.0.1",
-  "versionCode": 2,
+  "versionName": "1.0.2",
+  "versionCode": 3,
   "desc": "500px 图片"
 }

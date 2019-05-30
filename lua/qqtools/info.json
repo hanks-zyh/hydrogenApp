@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.qqtools",
   "name": "QQ 工具箱",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fic6cluapbj2046046a9v.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088883254f7d4?w=150&h=150&f=png&s=3988",
   "main": "main.lua",
   "versionName": "1.0.2",
-  "versionCode": 3,
+  "versionCode": 4,
   "desc": "QQ 工具箱"
 }

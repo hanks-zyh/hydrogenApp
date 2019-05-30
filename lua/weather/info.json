@@ -5,6 +5,6 @@
   "main": "main.lua",
   "versionName": "1.0.1",
   "versionCode": 3,
-  "private": true,
+  "private": false,
   "desc": "简洁的看天气的插件"
 }

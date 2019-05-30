@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.iciba",
   "name": "金山词霸",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhh42g0slsj2046046q2p.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088df179ab4d7?w=150&h=150&f=png&s=2753",
   "main": "main.lua",
   "versionName": "1.0.2",
-  "versionCode": 3,
+  "versionCode": 4,
   "desc": "金山词霸，用来查单词"
 }

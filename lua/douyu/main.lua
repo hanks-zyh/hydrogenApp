@@ -125,7 +125,7 @@ local data = {}
 local adapter
 
 local function getData()
-    LuaHttp.request({ url = 'https://m.douyu.com/index/getHomeData' }, function(error, code, body)
+    LuaHttp.request({ url = 'https://m.douyu.com/api/home/mix' }, function(error, code, body)
         if error or code ~= 200 then
             print('fetch douyu data error')
             return

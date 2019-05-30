@@ -54,20 +54,8 @@ local data = {
 }
 
 
-table.insert(data.fragments, fragmentNews.newInstance("https://www.appinn.com/page/%d/"))
+table.insert(data.fragments, fragmentNews.newInstance())
 table.insert(data.titles, '最新')
-
-table.insert(data.fragments, fragmentNews.newInstance("https://www.appinn.com/category/android/page/%d/"))
-table.insert(data.titles, 'Android')
-
-table.insert(data.fragments, fragmentNews.newInstance("https://www.appinn.com/category/ios/page/%d/"))
-table.insert(data.titles, 'Mac/iOS')
-
-table.insert(data.fragments, fragmentNews.newInstance("https://www.appinn.com/category/chrome/page/%d/"))
-table.insert(data.titles, 'Chrome')
-
-table.insert(data.fragments, fragmentNews.newInstance("https://www.appinn.com/category/tools/page/%d/"))
-table.insert(data.titles, '常用软件')
 
 
 local adapter = LuaFragmentPageAdapter(activity.getSupportFragmentManager(),

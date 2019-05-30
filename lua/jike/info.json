@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.jike",
   "name": "即刻",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh3502pvo2j2046046dfl.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088fd40e849d7?w=150&h=150&f=png&s=1924",
   "main": "main.lua",
   "versionName": "1.0.5",
-  "versionCode": 5,
+  "versionCode": 6,
   "desc": "即刻热门的信息流"
 }

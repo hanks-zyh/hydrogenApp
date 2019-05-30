@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.digit",
   "name": "数字尾巴",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fizg8m50v9j2046046743.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0852c2ccda17c?w=150&h=150&f=png&s=3953",
   "main": "main.lua",
   "versionName": "1.0.1",
-  "versionCode": 2,
+  "versionCode": 3,
   "desc": "数字尾巴"
 }

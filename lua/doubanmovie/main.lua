@@ -109,13 +109,14 @@ local data = {}
 local adapter
 
 function getData()
-    local url = string.format('http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=200')
+    local url = string.format('http://m.maoyan.com/ajax/movieOnInfoList')
     LuaHttp.request({ url = url }, function(error, code, body)
         if error or code ~= 200 then
             print('fetch data error')
             return
         end
-        local arr = JSON.decode(body).data.movies
+        print(body)
+        local arr = JSON.decode(body).movieList
         uihelper.runOnUiThread(activity, function()
             for i = 1, #arr do
                 data[#data + 1] = arr[i]
@@ -170,7 +171,9 @@ function onCreate(savedInstanceState)
             if views == nil then return end
             local item = data[position]
             if item then
-                LuaImageLoader.load(views.iv_image, item.img)
+                local imgUrl = item.img:gsub("w.h","148.208")
+                print(imgUrl)
+                LuaImageLoader.load(views.iv_image, imgUrl)
                 views.tv_title.setText(item.nm)
                 local sc = item.sc
                 if sc == nil or sc == 0 then sc = '' end

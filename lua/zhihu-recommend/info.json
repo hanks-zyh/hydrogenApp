@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.zhihu-recommend",
   "name": "知乎热门",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhrgrktsacj2046046dfl.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b08868307f7ea6?w=150&h=150&f=png&s=2168",
   "main": "main.lua",
   "versionName": "1.0.1",
-  "versionCode": 2,
+  "versionCode": 3,
   "desc": "知乎热门推荐"
 }

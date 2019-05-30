@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.tv005",
   "name": "动漫资讯",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh350em7jrj2046046jr5.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0885388e77ef8?w=150&h=150&f=png&s=2567",
   "main": "main.lua",
   "versionName": "1.0.2",
-  "versionCode": 3,
+  "versionCode": 4,
   "desc": "动漫新闻，cosplay，005.tv"
 }

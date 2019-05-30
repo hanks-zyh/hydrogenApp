@@ -24,19 +24,18 @@ local function getData(params, data, adapter, fragment, swipe_layout, reload)
     if reload then
         params.page = 1
     end
-    local url = string.format(params.rid, params.page)
+    local url = "https://feeds.appinn.com/appinns/"
     print(url)
     LuaHttp.request({ url = url }, function(error, code, body)
         if error or code ~= 200 then return end
         params.page = params.page + 1
         local arr = {}
-        for div in string.gmatch(body, '(<div id="post[-]%d+.-</div>)<![-][-]%s+[.]post') do
-            local url, title, img, desc = string.match(div,'<a%s+href="(.-)".-title="(.-)".-src="(.-)".-class="entry[-]content">(.-)<p' )
-            local item = {url=url, title=title:gsub("&#8211;", ""), img=img ,desc = desc}
+        for div in string.gmatch(body, '<item>(.-)</item>') do
+            local title, url, content, img = string.match(div,'<title>(.-)</title>%s+<link>(.-)</link>.-<description><!.CDATA.(.-)...</description>.-<img%s+src="(.-)"')
+            local item = {title = title, url = url, content = content, img=img }
             arr[#arr + 1] = item
         end
-        log.print_r(arr)
-
+--        log.print_r(arr)
         uihelper.runOnUiThread(fragment.getActivity(), function()
             if reload then
                 for k, _ in ipairs(data) do data[k] = nil end
@@ -52,20 +51,15 @@ local function getData(params, data, adapter, fragment, swipe_layout, reload)
 end
 
 local function launchDetail(fragment, item)
-    log.print_r(item)
     local activity = fragment.getActivity()
     if item == nil or item.url == nil then
         activity.toast('没有 url 可以打开')
         return
     end
-    local activity = fragment.getActivity()
-    local intent = Intent(activity, LuaActivity)
-    intent.putExtra("luaPath", 'appinn/activity_news_detail.lua')
-    intent.putExtra("url", item.url)
-    activity.startActivity(intent)
+    WebViewActivity.start(activity, item.url, 0xffB64926)
 end
 
-local function newInstance(rid, type)
+local function newInstance()
 
     -- create view table
     local layout = {
@@ -170,8 +164,8 @@ local function newInstance(rid, type)
                         else
                             views.iv_image.setVisibility(8)
                         end
-                        views.tv_title.setText(item.title or 'ERROR TITLE')
-                        views.tv_desc.setText(item.desc)
+                        views.tv_title.setText(item.title or '')
+                        views.tv_desc.setText(item.content or '')
                     end
                     if position == #data then getData(params, data, adapter, fragment, ids.swipe_layout) end
                     return convertView

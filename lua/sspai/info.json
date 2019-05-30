@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.sspai",
   "name": "少数派",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fhjg0ekk7gj20460460si.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088719a5dfd47?w=150&h=150&f=png&s=2762",
   "main": "main.lua",
   "versionName": "1.0.2",
-  "versionCode": 3,
+  "versionCode": 4,
   "desc": "少数派"
 }

@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.wikibaidu",
   "name": "百度百科",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fkgp146sd5j2046046q2q.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0859e82e896b5?w=150&h=150&f=png&s=3461",
   "main": "main.lua",
-  "versionName": "1.0",
-  "versionCode": 1,
+  "versionName": "1.0.1",
+  "versionCode": 2,
   "desc": "中文知识性百科全书(需最新客户端)"
 }

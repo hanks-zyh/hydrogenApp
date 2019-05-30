@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.huaban-popular",
   "name": "花瓣热门",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fh824w2h3wj2046046gld.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b088d9ccb657bf?w=150&h=150&f=png&s=2265",
   "main": "main.lua",
   "versionName": "1.0.4",
-  "versionCode": 4,
+  "versionCode": 5,
   "desc": "花瓣网热门图片采集"
 }

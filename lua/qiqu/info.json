@@ -5,5 +5,6 @@
   "main": "main.lua",
   "versionName": "1.0",
   "versionCode": 1,
+  "private": true,
   "desc": "提取自奇趣百科，优化浏览体验"
 }

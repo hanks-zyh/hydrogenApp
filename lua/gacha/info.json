@@ -5,5 +5,6 @@
   "main": "main.lua",
   "versionName": "1.0",
   "versionCode": 1,
+  "private": true,
   "desc": "网易每日插画排行"
 }

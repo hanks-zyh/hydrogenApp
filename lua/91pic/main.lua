@@ -32,15 +32,10 @@ local adapter
 local imageWidth = uihelper.getScreenWidth()
 local data = {}
 local list = {
-    page = 0,
+    page = 1,
     index = 1,
     subList = {}
 }
-
-
-math.randomseed(os.time())
---- -然后不断产生随机数
-list.page = math.floor(math.random() * 20)
 
 -- create view table
 local layout = {
@@ -99,7 +94,6 @@ local function calcImgInfo(filePath, info)
     info.localUrl = filePath
 end
 
-
 local function notifyUI(arr)
     uihelper.runOnUiThread(activity, function()
         local s = #data
@@ -132,40 +126,31 @@ end
 
 local function fetchData()
     tv_loading.setVisibility(0)
-    if list.index > #list.subList then
-        list.page = list.page + 1
-        print("page", list.page)
-        if list.page > 21 then list.page = 1 end
-        LuaHttp.request({ url = string.format('http://pic.91.com/girl/list_%d.html', list.page) }, function(error, code, body)
-            if error or code ~= 200 then
-                print('error', code, url)
-                return
-            end
-
-            local i = 1
-            for k, _ in pairs(list.subList) do list.subList[k] = nil end
-            for s in string.gmatch(body, 'http://pic.91.com/girl/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].html') do
-                list.subList[i] = s
-                i = i + 1
-            end
-            list.index = 1
-            fetchData()
-        end)
-        return
-    end
-
-    local url = list.subList[list.index]
-    list.index = list.index + 1
+    local url =string.format('http://m.hao123.com/hao123_api/a/tupian/more?pn=%d&tag=meinv', list.page)
+    print(url)
     LuaHttp.request({ url = url }, function(error, code, body)
+        if error or code ~= 200 then
+            print('error', code, url)
+            return
+        end
+
         local arr = {}
         local urls = {}
-        local div = string.match(body, '<div class="small_list">(.-)</div>')
-        for s in string.gmatch(div, 'bigimg="http://img%d.91.com/uploads/allimg/(.-).jpg') do
-            urls[#urls + 1] = string.format('http://img3.91.com/uploads/allimg/%s.jpg', s)
+
+        local json = JSON.decode(body).data
+        for i = 1, #json.data do
+            local item = json.data[i]
+            for j = 1, #item.img_list do
+                local img = item.img_list[j].img.l
+                urls[#urls + 1] = img
+            end
         end
+
         for i = 1, #urls do
             downloadFile(urls, i, arr)
         end
+
+        list.page = list.page + 1
     end)
 end
 

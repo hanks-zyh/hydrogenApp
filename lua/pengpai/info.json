@@ -1,9 +1,9 @@
 {
   "id": "pub.hanks.pengpainews",
   "name": "澎湃新闻",
-  "icon": "http://ww1.sinaimg.cn/large/8c9b876fly1fivss3tagmj2046046jr9.jpg",
+  "icon": "https://user-gold-cdn.xitu.io/2019/5/30/16b0889e8328d952?w=150&h=150&f=png&s=6544",
   "main": "main.lua",
-  "versionName": "1.0.5",
-  "versionCode": 6,
+  "versionName": "1.0.6",
+  "versionCode": 7,
   "desc": "澎湃新闻客户端"
 }
