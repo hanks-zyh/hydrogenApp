@@ -19,6 +19,7 @@ local uihelper = require("uihelper")
 local JSON = require("cjson")
 local filehelper = require("filehelper")
 local weather = require("weather.weather")
+local log = require("log")
 
 local item_hour = {
     LinearLayout,
@@ -210,7 +211,8 @@ local function fillWeekInfo(body)
 end
 
 local function fill24HInfo(body)
-    local json = JSON.decode(string.match(body, 'fc1h_24 =(.*)'))
+    print(body)
+    local json = JSON.decode(string.match(body, 'fc1h_24%s+=(.*);'))
     local j = 0
     for i = 1, #json.jh, 3 do
         local child = layout_24h.getChildAt(j)
@@ -227,10 +229,11 @@ end
 
 
 local function getData(url, successFunc)
+    print(url)
     local options = {
         url = url,
         headers = {
-            "Referer:http://e.weather.com.cn"
+            "Referer:http://m.weather.com.cn"
         }
     }
     LuaHttp.request(options, function(error, code, body)
@@ -324,19 +327,23 @@ function onDestroy()
 end
 
 local function findCityCode(province, city)
-    local id = '101010100'
     local China = require("weather.city")
     for k, v in pairs(China) do
         if province == k then
             for k2, v2 in pairs(v) do
                 if k2 == city then
-                    id = v2[1][1]:sub(2)
-                    return id
+                    print(city)
+                    log.print_r(v2) 
+                    for k3,v3 in pairs(v2) do
+                        if(v3 == city) then
+                            return k3:sub(2)
+                        end
+                    end
                 end
             end
         end
     end
-    return id
+    return '101010100'
 end
 
 local function locateMe()
@@ -349,6 +356,7 @@ local function locateMe()
         }
     }
     LuaHttp.request(options, function(error, code, body)
+        print(body)
         if error or code ~= 200 then
             print('locate failure')
             return
